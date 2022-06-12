@@ -1,0 +1,321 @@
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  left: auto;
+  right: auto;
+  justify-content: center;
+  background: white;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+  font-family: "Blaka Hollow", serif;
+}
+
+.dark {
+  background: black;
+}
+
+.pause {
+  display: none;
+  grid-template-areas:
+    "h1"
+    "h2"
+    "h1";
+  position: absolute;
+  width: 85%;
+  height: 82%;
+  left: calc(50% - 0.5 fit-content);
+  bottom: 11%;
+  color: rgb(99, 140, 38);
+  background-color: rgb(53, 50, 47);
+  border-radius: 3rem;
+  border: 0.7vmin solid black;
+  outline: 1vmin double rgb(99, 140, 38);
+  z-index: 1;
+  padding: 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+  background-image: url("snake2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.pause h1 {
+  justify-content: center;
+  text-align: center;
+  font-size: 6.5vw;
+  padding-top: 10vh;
+  font-weight: lighter;
+  transition-property: text-align, font-size;
+  transition-duration: 1s, 1.3s;
+}
+
+.pause h2 {
+  justify-content: center;
+  text-align: center;
+  font-size: 5vw;
+  padding-top: 10vh;
+  padding-bottom: 7vh;
+  font-weight: lighter;
+  transition-property: text-align, font-size;
+  transition-duration: 1s, 1.3s;
+}
+
+.settings {
+  display: none;
+  position: absolute;
+  width: 80vmin;
+  height: 86vmin;
+  left: calc(50% - 0.5 width);
+  z-index: 2;
+  background-color: rgb(99, 140, 38);
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  bottom: 11%;
+  font-weight: lighter;
+  outline: 1vmin double rgb(99, 140, 38);
+}
+.settings h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4vw;
+  color: black;
+  bottom: 10%;
+  padding-top: 10%;
+  font-weight: lighter;
+}
+.end {
+  display: none;
+  z-index: 10;
+  position: absolute;
+  width: 80vmin;
+  height: 80vmin;
+  left: calc(50% - 0.5 width);
+  bottom: 17vh;
+  background: rgb(111, 16, 16);
+  border: 0.5vmin solid black;
+  border-radius: 0.8rem;
+  outline: 1vmin double rgb(111, 16, 16);
+}
+.end h1 {
+  text-align: center;
+  font-size: 9vw;
+  color: #777;
+  font-weight: lighter;
+}
+.end h2 {
+  text-align: center;
+  font-size: 6vw;
+  color: #777;
+  font-weight: lighter;
+}
+.speed {
+  display: flex;
+  align-items: center;
+  box-align: center;
+  width: 80vmin;
+}
+.speed label {
+  flex: 1 1 auto;
+  font-size: larger;
+  color: black;
+  padding: 0.5rem;
+}
+.speed input {
+  flex: 1 1 auto;
+}
+
+.checkbox input {
+  width: 2rem;
+  height: 2rem;
+  margin-left: calc(50% - 1rem);
+  bottom: 20%;
+}
+
+.settings button {
+  width: 6rem;
+  height: 1.5rem;
+  margin-left: calc(50% - 3rem);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: aliceblue;
+  background-color: black;
+  transition: 1s;
+  border-radius: 0.2rem;
+  font-family: "Blaka Hollow", serif;
+  font-weight: lighter;
+  outline: 0.5rem double rgb(53, 50, 47);
+}
+#mode:hover {
+  background-color: #777;
+}
+
+.visible {
+  display: block;
+}
+
+.game {
+  position: absolute;
+  display: grid;
+  grid-template-rows: repeat(21, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+  width: 80vmin;
+  height: 80vmin;
+  left: calc(50% - 0.5 width);
+  bottom: 17vh;
+  background: #333;
+  border: 0.5vmin solid black;
+  border-radius: 0.8rem;
+  outline: 1vmin double rgb(99, 140, 38);
+}
+
+.snake {
+  background: rgb(99, 140, 38);
+  border: 0.25vmin solid rgba(206, 245, 15, 0.708);
+  border-radius: 0.8rem;
+}
+
+.apple {
+  background: red;
+  transition: 2s;
+  border: 0.25vmin solid #333;
+  border-radius: 50%;
+}
+
+.sh {
+  display: grid;
+  grid-template-areas: "score highscore";
+  gap: 4vmin;
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 6rem;
+  bottom: 1vh;
+  left: calc(50% - 0.5 fit-content);
+}
+.score {
+  color: #777;
+  font-size: 3.2vw;
+}
+.score h2 {
+  font-weight: lighter;
+}
+
+.highscore {
+  color: #777;
+  font-size: 3.2vw;
+}
+.highscore h2 {
+  font-weight: lighter;
+}
+
+@media screen and (min-width: 700px) {
+  .speed label {
+    font-size: 2rem;
+  }
+  .score {
+    font-size: 2.5vw;
+  }
+  .highscore {
+    font-size: 2.5vw;
+  }
+  .pause h1 {
+    font-size: 5.5vh;
+    padding-top: 10vh;
+  }
+  .pause h2 {
+    justify-content: center;
+    text-align: center;
+    font-size: 4.5vw;
+    padding-top: 10vh;
+    padding-bottom: 7vh;
+  }
+  .end {
+    bottom: 13vh;
+  }
+  .end h1 {
+    font-size: 7vh;
+  }
+  .end h2 {
+    font-size: 5vw;
+  }
+  .game {
+    bottom: 13vh;
+  }
+  .sh {
+    bottom: 1.5vh;
+  }
+  .settings {
+    bottom: 11vh;
+    height: 82vmin;
+  }
+  .settings input {
+    width: 2vw;
+    height: 2vh;
+  }
+
+  .settings button {
+    width: 10rem;
+    height: 2.5rem;
+    margin-left: calc(50% - 5rem);
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .score {
+    font-size: 2vw;
+  }
+  .highscore {
+    font-size: 2vw;
+  }
+  .settings {
+    bottom: 10vh;
+    height: 83vmin;
+  }
+  .settings h1 {
+    font-size: 4.5vh;
+  }
+  .speed label {
+    font-size: 2.5rem;
+  }
+  .settings button {
+    width: 12rem;
+    height: 3rem;
+    margin-left: calc(50% - 6rem);
+    font-size: 1.8rem;
+  }
+  .settings input {
+    width: 3vw;
+    height: 3vh;
+  }
+  .pause h1 {
+    font-size: 6vw;
+    padding-top: 0.5vh;
+  }
+  .pause h2 {
+    justify-content: center;
+    text-align: center;
+    font-size: 4vw;
+    padding-top: 4vh;
+    padding-bottom: 7vh;
+  }
+  .end {
+    bottom: 13vh;
+  }
+  .end h1 {
+    font-size: 6vw;
+    padding-bottom: none;
+  }
+  .end h2 {
+    font-size: 3vw;
+    padding-top: none;
+  }
+  .game {
+    bottom: 13vh;
+  }
+  .sh {
+    bottom: 2vh;
+  }
+}

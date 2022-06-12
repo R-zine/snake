@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Snake Game</title>
+    <link rel="stylesheet" href="style-prefixed.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Blaka&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <div class="pause visible">
+      <h1>Press Space to start a new game.</h1>
+      <h2>Navigate using arrow keys or WASD</h2>
+      <br />
+      <h1>Press M to enter Menu</h1>
+    </div>
+    <div class="settings">
+      <h1>Speed:</h1>
+      <br />
+      <div class="speed">
+        <input type="radio" name="speed" id="3" class="speedbtn" />
+        <label for="3">Slow</label>
+        <input type="radio" name="speed" checked id="7" class="speedbtn" />
+        <label for="7">Normal</label>
+        <input type="radio" name="speed" id="11" class="speedbtn" />
+        <label for="7">Fast</label>
+        <input type="radio" name="speed" id="15" class="speedbtn" />
+        <label for="15">Faster</label>
+        <input type="radio" name="speed" id="21" class="speedbtn" />
+        <label for="15">Insane</label>
+      </div>
+
+      <h1>Fast Grower?</h1>
+      <div class="checkbox">
+        <input type="checkbox" name="grow" id="grow" />
+      </div>
+      <h1>Mode</h1>
+      <button id="mode">Dark</button>
+    </div>
+    <div class="end">
+      <h1>You lost!</h1>
+
+      <br />
+      <h2>Press any key to start a new game.</h2>
+      <br />
+      <h2>Press M to enter Menu</h2>
+    </div>
+    <div class="game"></div>
+    <div class="sh">
+      <div class="score">
+        <h2>Score: 0</h2>
+      </div>
+      <div class="highscore">
+        <h2>Highscore: 0</h2>
+      </div>
+    </div>
+  </body>
+</html>
